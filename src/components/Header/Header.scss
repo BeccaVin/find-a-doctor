@@ -1,0 +1,103 @@
+@import '../../styles/mixins.scss';
+
+.top {
+    font-family: $font-family2;
+    width: 100%;
+    background-color: $black;
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        flex-direction: row; 
+        
+        @include tablet {
+            justify-content: flex-start;
+        }
+    }
+    &__title-img {
+        width: 2rem;
+        padding: 2rem 0.5rem 1rem 0;
+
+        @include tablet {
+            width: 2.5rem;
+            padding: 2rem;
+            padding-right: 0.5rem;
+        }
+        @include desktop {
+            padding-left: 4rem;
+        }
+    }
+    &__title-text {
+        margin: 0;
+        padding-top: 2.2rem;
+        font-size: 1.2rem;
+        font-weight: 900;
+        color: white;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
+    }
+    &__container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        @include tablet {
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: -5.5rem;
+        }
+    }
+    &__button {
+        text-align: center;
+        padding: 0.5rem 1rem;
+        background-color: $blue;
+        border: none;
+        border-radius: 20px; 
+        font-family: $font-family2;
+        font-size: 1rem;
+        color: white;
+        width: 10rem;
+        margin: 1rem;
+
+        @include tablet {
+            margin: 1rem 2rem 0.5rem 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        @include desktop {
+            margin-right: 4rem;
+        }
+    }
+    &__button:hover {
+        background-color: $hover-blue;
+    }
+    &__container-text {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            display: block;
+            margin: 0.5rem;
+        }
+
+        @include desktop {
+            margin-right: 2rem;
+        }
+    }
+    &__login, &__register {
+        color: $blue;
+        font-family: $font-family;
+        @include tablet {
+            padding-right: 2rem;
+            font-size: 1.2rem;
+        }
+    }
+    &__login:hover, &__register:hover {
+        color: $hover-blue;
+        text-decoration: underline;
+        font-weight: 900;
+    }
+}
