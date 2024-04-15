@@ -40,7 +40,7 @@
             font-size: 1.5rem;
         }
     }
-    &__container {
+    &__container,  &__login-container {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -48,7 +48,15 @@
         @include tablet {
             flex-direction: column;
             align-items: flex-end;
-            margin-top: -5rem;
+            margin-top: -5.5rem;
+        }
+    }
+    &__login-container {
+        margin-top: -1rem;
+
+        @include tablet {
+            margin-top: -6rem;
+            padding-bottom: 2rem;
         }
     }
     &__button {
@@ -62,6 +70,7 @@
         color: white;
         width: 10rem;
         margin: 1rem;
+       
 
         @include tablet {
             margin: 1rem 2rem 0.5rem 1.2rem;
@@ -72,13 +81,14 @@
             margin-right: 4rem;
         }
     }
-    // &__button:hover {
-    //     background-color: $hover-blue;
-    // }
+    &__button:hover {
+        background-color: $hover-blue;
+    }
     &__container-text {
         margin: 1rem;
         display: flex;
         flex-direction: column;
+        text-decoration: none;
 
         @include tablet {
             display: block;
