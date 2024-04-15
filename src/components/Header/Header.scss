@@ -9,9 +9,11 @@
         display: flex;
         justify-content: center;
         flex-direction: row; 
+        text-decoration: none;
         
         @include tablet {
             justify-content: flex-start;
+            padding-top: 1rem;
         }
     }
     &__title-img {
@@ -46,15 +48,15 @@
         @include tablet {
             flex-direction: column;
             align-items: flex-end;
-            margin-top: -5.5rem;
+            margin-top: -5rem;
         }
     }
     &__button {
         text-align: center;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem;
         background-color: $blue;
         border: none;
-        border-radius: 20px; 
+        border-radius: 6px; 
         font-family: $font-family2;
         font-size: 1rem;
         color: white;
@@ -70,9 +72,9 @@
             margin-right: 4rem;
         }
     }
-    &__button:hover {
-        background-color: $hover-blue;
-    }
+    // &__button:hover {
+    //     background-color: $hover-blue;
+    // }
     &__container-text {
         margin: 1rem;
         display: flex;
@@ -96,7 +98,7 @@
         }
     }
     &__login:hover, &__register:hover {
-        color: $hover-blue;
+        color: $hover-light-blue;
         text-decoration: underline;
         font-weight: 900;
     }

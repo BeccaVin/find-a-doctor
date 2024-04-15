@@ -1,12 +1,16 @@
-import Header from './components/Header/Header';
+import HomePage from './pages/HomePage';
+import NoPage from "./pages/NoPage";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      < Header />
-    </div>
+  <BrowserRouter>
+    <Routes>
+        < Route exact path="/" element={<HomePage />} />
+        < Route element={<NoPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
