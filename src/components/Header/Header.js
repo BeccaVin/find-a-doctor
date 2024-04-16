@@ -18,7 +18,9 @@ function Header() {
                 <NavLink to="/Login" className="top__login">
                   Login
                 </NavLink>
-                <a className="top__register">Register</a>
+                <NavLink to="/Register" className="top__register">
+                  Register
+                </NavLink>
             </div>
         </div>
       </section>

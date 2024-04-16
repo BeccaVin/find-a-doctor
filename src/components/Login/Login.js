@@ -3,7 +3,7 @@ import '../Login/Login.scss';
 function Login() {
     return (
       <section className="login"> 
-        <h2 className="login__title">Login</h2>    
+        <h1 className="login__title">LOGIN</h1>    
         <form className="login__form">
             <label className="login__form-label">Email:</label> <br/>
             <input 

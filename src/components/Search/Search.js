@@ -18,7 +18,7 @@ function Search() {
                         className="search__form-radio"
                     />
                     <label className="search__form-label">Accepting new patients</label>
-                </div>
+            </div>
                 <button className="search__form-button">Search</button>
             </div>
         </form>
