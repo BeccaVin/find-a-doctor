@@ -1,0 +1,135 @@
+@import '../../styles/mixins';
+
+.register {
+    background-color: $light-grey;
+    margin: 0;
+    height: 100%;
+
+    &__title {
+        margin: 0;
+        text-align: center;
+        padding: 2rem;
+
+        @include tablet {
+            padding: 4rem;
+            padding-bottom: 2rem;
+        }
+    }
+    &__form {
+        background-color: white;
+        margin: 1rem;
+        box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        padding: 1rem;   
+
+        @include tablet {
+            margin-right: 4rem;
+            margin-left: 4rem;
+            padding: 3rem;
+        }
+        @include desktop {
+            margin-right: 8rem;
+            margin-left: 8rem;
+            padding-right: 5rem;
+            padding-left: 5rem;
+        }
+    }
+    &__login-container, &__profile-container {
+        border-bottom: 1px solid $yellow;
+    }
+    &__input-div {
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            
+        }
+    }
+    &__div {
+        @include tablet {
+            margin-right: 1rem;
+        }
+    }
+    &__form-input {
+        padding: 0.5rem 1rem;
+        border-radius: 6px; 
+        font-family: $font-family;
+        font-size: 1rem;
+        width: fill;
+        border: solid $blue;
+        margin-top: 0.3rem;
+        margin-bottom: 2rem;
+
+        @include tablet {
+            width: 13.5rem;
+        }
+    }
+    &__form-select {
+        padding: 0.3rem 1rem;
+        border-radius: 6px; 
+        font-family: $font-family;
+        font-size: 1rem;
+        width: fill;
+        border: solid $blue;
+        margin-top: 0.3rem;
+        margin-bottom: 2rem;
+
+        @include tablet {
+            width: 15.5rem;
+            font-size: 1.2rem;
+        }
+    }
+    &__form-input::placeholder {
+        color: black;
+
+        @include tablet {
+            font-size: 1.2rem;
+        }
+    }
+    &__form-input:focus {
+        border-color: $hover-blue;
+        outline: none;
+    }
+    &__form-label {
+        font-family: $font-family2;
+
+        @include tablet {
+            font-size: 1.2rem;
+        }
+    }
+    &__button-div {
+        @include tablet {
+            text-align: right;
+        }
+    }
+    &__form-button {
+        text-align: center;
+        padding: 0.5rem 1rem;
+        background-color: $blue;
+        border: none;
+        border-radius: 6px; 
+        font-family: $font-family2;
+        font-size: 1rem;
+        color: white;
+        width: fill;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+
+        @include tablet {
+            width: auto;
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+    }
+    &__form-button:hover {
+        background-color: $hover-blue;
+    } 
+}
+select {
+    font-family:$font-family;
+    @include tablet {
+        font-size: 1.2rem;
+    }
+
+}
