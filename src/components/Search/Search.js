@@ -1,5 +1,5 @@
 import '../Search/Search.scss';
-
+import {NavLink} from 'react-router-dom';
 
 function Search() {
     return (
@@ -19,7 +19,9 @@ function Search() {
                     />
                     <label className="search__form-label">Accepting new patients</label>
             </div>
-                <button className="search__form-button">Search</button>
+                <NavLink to="/DoctorsList">
+                    <button className="search__form-button">Search</button>
+                </NavLink>
             </div>
         </form>
         </section>

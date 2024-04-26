@@ -52,10 +52,10 @@
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
-            width: 65%;
+            width: 60%;
             position: absolute;
             // margin-top: -5.5rem;
-            left: 38%;
+            left: 37%;
             top: 35%;
         }
     }
@@ -69,12 +69,11 @@
         margin-bottom: 0.5rem;
 
         @include tablet {
-            width: 50%;
+            width: 45%;
             margin: 0;
             margin-right: 1rem;
             padding: 1rem;
         }
-
     }
     &__form-input::placeholder {
         color: black;
@@ -120,8 +119,10 @@
         margin-bottom: 1rem;
 
         @include tablet {
-            width: 30%;
+            padding: 1rem;
+            width: 10rem;
             margin: 0;
+            margin-right: 1rem;
             font-size: 1.2rem;
         }
 

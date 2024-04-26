@@ -12,8 +12,8 @@ function HeaderLogin() {
             <h1 className="top__title-text">FIND A DOCTOR</h1>
         </NavLink>
         
-        <div className="top__login-container">
-            <NavLink to="/" className="top__container-text">
+        <div className="top__login--container">
+            <NavLink to="/" className="top__text">
                 <button className="top__button">Doctor Search</button>
             </NavLink>      
         </div>
