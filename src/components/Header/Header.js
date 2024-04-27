@@ -13,7 +13,7 @@ function Header() {
         </NavLink>
         
         <div className="top__container">
-            <p className="top__button">I'm a doctor</p>
+            <button className="top__button">I'm a doctor</button>
             <div className="top__container-text">
                 <NavLink to="/Login" className="top__login">
                   Login
