@@ -1,1 +1,120 @@
 @import '../../styles/mixins';
+
+.list {
+    background-color: $light-grey;
+    margin: 0;
+    height: 100vh;
+    font-family: &font-family;
+
+    &__title {
+        margin: 0;
+        padding: 3rem 2rem 2rem 2rem;
+        text-align: center;
+        // font-weight: 500;        
+
+        @include tablet {
+            padding: 4rem;
+        }
+    }
+    &__top-container {
+        padding: 3rem 2rem 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet {
+            padding: 0 3rem 1rem 3rem;
+        }
+        @include desktop {
+            padding: 0 7.5rem 1rem 7.5rem;
+        }
+    }
+    &__link {
+        text-decoration: underline;
+        color: $blue;
+        font-family:$font-family;
+        
+    }
+    &__link:hover {
+        font-weight: 900;
+        color: $hover-blue;
+        text-decoration: underline;
+    }
+    &__hits {
+        margin: 0;
+        font-family: $font-family2;
+    }
+    &__result-container {
+        background-color: $light-blue;
+        margin: 1rem 2rem 1rem 2rem;
+        box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        padding: 1rem;
+
+        @include tablet {
+            margin-right: 2.5rem;
+            margin-left: 2.5rem;
+            position: relative;
+            padding: 2rem;
+           
+        }
+
+        @include desktop {
+            margin-right: 7rem;
+            margin-left: 7rem;
+            padding-left: 3.5rem;
+            padding-right: 3.5rem;
+        }
+    }
+    &__doctor-info {
+        
+        @include tablet {
+        display: flex;
+        justify-content: center;
+        }
+    }
+    &__name {
+        text-decoration: underline;
+        margin-bottom: 0;
+        @include tablet {
+            padding-right: 1rem;
+            font-size: 1.3rem;
+        }
+    }
+    &__cpso {
+       margin-top: 0;
+        @include tablet {
+            margin-top: 1.7rem;
+            font-size: 0.9rem;
+        }
+    }
+    &__info-container {
+        @include tablet {
+            text-align: center;
+        }
+    }
+    // &__specialty-info {
+    //     @include tablet {
+    //         display: flex;
+    //         // justify-content: space-between;
+    //     }
+    // }
+    &__specialty-title, &__address-title, &__contact-title {
+        margin-bottom: 0;
+    }
+    &__specialty, &__phone {
+        margin-top: 0;
+        // @include tablet {
+        //     margin-top: 1.4rem;
+        //     padding-left: 1rem;
+        // }
+    }
+    &__hospital, &__street, &__address {
+        margin: 0;
+    }
+    &__status {
+        color: $hover-blue;
+        text-align: right;
+        margin-bottom: 0;
+    }
+
+}
