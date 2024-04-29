@@ -1,13 +1,13 @@
-$font-family: "Open Sans";
-$font-family2: "Open Sans Bold";
+$font-family: "Open Sans", Arial, Helvetica, sans-serif;
+$font-family2: "Open Sans Bold", Arial, Helvetica, sans-serif;
 
 @font-face {
-    font-family: "Open Sans";
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
     src: url(../assets/Fonts/OpenSans-Regular.ttf) format("truetype");
     font-weight: 400;
 }
 
 @font-face {
-    font-family: "Open Sans Bold";
+    font-family: "Open Sans Bold", Arial, Helvetica, sans-serif;
     src: url(../assets/Fonts/OpenSans-Bold.ttf) format("truetype");
 }

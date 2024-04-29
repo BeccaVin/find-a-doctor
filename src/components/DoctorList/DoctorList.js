@@ -20,11 +20,11 @@ function DoctorList() {
     
     return (
         <section className="list"> 
-            <h2 className="list__title">DOCTOR SEARCH RESULTS</h2>
+            {/* <h2 className="list__title">DOCTOR SEARCH RESULTS</h2>
             <div className="list__top-container">
                 <NavLink to="/" className="list__link">Back to Search</NavLink>
                 <p className="list__hits">2 results</p>
-            </div>
+            </div> */}
             <div className="list__result-container"> 
                 {doctors.map((doctor) => (
                 <div key={doctor.id} className="list__container">
