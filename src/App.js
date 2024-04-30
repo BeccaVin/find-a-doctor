@@ -9,14 +9,15 @@ import {googleApiKey} from './utils/Utils';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { useState } from 'react';
 
-const libraries = ['places']; // Define the libraries array outside the component
+const libraries = ['places', 'marker']; 
 
 function App() {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: googleApiKey,
     libraries: libraries
   })
-  const [mapCenter, setMapCenter] = useState({ lat: 43.653225, lng: -79.383186 });
+ 
+  const [addressInput, setAddressInput] = useState({});
 
   if (!isLoaded) {
     return <h2 className="maps__loading">Loading Maps</h2>
@@ -24,10 +25,20 @@ function App() {
   return (
   <BrowserRouter>
     <Routes>
-        < Route exact path="/" element={<HomePage isLoaded={isLoaded}/>} />
+        < Route 
+          exact path="/" 
+          element={<HomePage 
+            isLoaded={isLoaded} 
+            setAddressInput={setAddressInput}
+          />}/>
         < Route exact path="/Login" element={<LoginPage />} />
         < Route exact path="/Register" element={<RegisterPage />} />
-        < Route exact path="/DoctorsList" element={<DoctorListPage isLoaded={isLoaded} mapCenter={mapCenter}/>} />
+        < Route 
+          exact path="/DoctorsList" 
+          element={<DoctorListPage 
+            isLoaded={isLoaded} 
+            addressInput={addressInput}
+          />} />
         < Route element={<NoPage />} />
       </Routes>
     </BrowserRouter>

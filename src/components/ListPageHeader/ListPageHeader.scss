@@ -1,0 +1,41 @@
+@import '../../styles/mixins';
+
+.listheader {
+    &__title {
+        margin: 0;
+        padding: 3rem 2rem 0rem 2rem;
+        text-align: center;    
+
+        @include tablet {
+            padding: 4rem;
+            padding-bottom: 3rem;
+        }
+    }
+    &__top-container {
+        padding: 3rem 2rem 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet {
+            justify-content:space-around;
+        }
+        @include desktop {
+            padding: 0 7.5rem 1rem 7.5rem;
+        }
+    }
+    &__link {
+        text-decoration: underline;
+        color: $blue;
+        font-family:$font-family;
+        
+    }
+    &__link:hover {
+        font-weight: 900;
+        color: $hover-blue;
+        text-decoration: underline;
+    }
+    &__hits {
+        margin: 0;
+        font-family: $font-family2;
+    }
+}

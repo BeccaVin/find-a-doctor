@@ -1,8 +1,30 @@
 import '../Search/Search.scss';
-import {NavLink} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { Autocomplete } from '@react-google-maps/api';
+import { useState } from 'react';
 
-function Search({ isLoaded }) {
+function Search({ isLoaded, setAddressInput }) {
+    const [autocompletedAddress, setAutocompletedAddress] = useState('');
+    const navigate = useNavigate();
+
+    const handleInputChange = (e) => {
+        setAutocompletedAddress(e.target.value);
+    };
+    
+    const handleAutocomplete = (place) => {
+        setAutocompletedAddress(place.formatted_address);
+        setAddressInput({
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng()
+        });
+
+        console.log(setAddressInput);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate("/DoctorsList", { state: { autocompletedAddress } });
+    }
 
     return (
         <section className="search">
@@ -11,10 +33,11 @@ function Search({ isLoaded }) {
             <h2 className="search__form-title">DOCTOR SEARCH</h2>
             <div className="search__form-container">
                { isLoaded ? ( 
-                <Autocomplete>
+                <Autocomplete onChange={handleAutocomplete}>
                     <input 
                         className="search__form-input" 
                         placeholder="Enter address here"
+                        onChange={handleInputChange}
                     />
                 </Autocomplete>
                 ) : (
@@ -31,9 +54,9 @@ function Search({ isLoaded }) {
                     />
                     <label className="search__form-label">Accepting new patients</label>
             </div>
-                <NavLink to="/DoctorsList">
-                    <button className="search__form-button">Search</button>
-                </NavLink>
+                {/* <NavLink to="/DoctorsList"> */}
+                    <button type="submit" className="search__form-button" onClick={handleSubmit}>Search</button>
+                {/* </NavLink> */}
             </div>
         </form>
         </section>

@@ -1,11 +1,9 @@
 import '../DoctorList/DoctorList.scss';
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import {baseUrl} from '../../utils/Utils';
 import axios from 'axios';
-import {NavLink} from 'react-router-dom';
-function DoctorList() {
-    const [doctors, setDoctors] = useState([]);
 
+function DoctorList({ setDoctors, filteredDoctors }) {
     useEffect(() => {
         const fetchDoctorData = async () => {
             try {
@@ -16,17 +14,13 @@ function DoctorList() {
             }
         };
         fetchDoctorData();
+
     }, []);
-    
+
     return (
         <section className="list"> 
-            {/* <h2 className="list__title">DOCTOR SEARCH RESULTS</h2>
-            <div className="list__top-container">
-                <NavLink to="/" className="list__link">Back to Search</NavLink>
-                <p className="list__hits">2 results</p>
-            </div> */}
             <div className="list__result-container"> 
-                {doctors.map((doctor) => (
+                {filteredDoctors.map((doctor) => (
                 <div key={doctor.id} className="list__container">
                     <div className="list__doctor-info">
                         <h3 className="list__name">{doctor.name}</h3>
