@@ -1,34 +1,24 @@
 @import '../../styles/mixins';
 .maps {
-    position: relative;
-    display: flex;
-    height: 60vh;
-    width: fill;
-    background-color: $light-grey;
-
+    @include tablet {
+        display: flex;
+        justify-content: center;
+    }
     &__loading {
         text-align: center;
     }
-
     &__container {
-        position: absolute;
-        top:0;
-        left: 0;
-        height: fill;
+        height: 60vh;
         width: fill;
-        display: flex;
-        justify-content: center;
         margin: 1rem;
-    }
-
-    &__google-container {
-        width: fill;
-        height: fill;
-        // // z-index: 1;
-        border-radius: 4px;
 
         @include tablet {
-            width: 60vw;
+            width: 70vw;
         }
+    }
+    &__marker {
+        max-width: 0.5rem;
+        height: 0.5rem;
+ 
     }
 }

@@ -1,26 +1,12 @@
 import '../DoctorList/DoctorList.scss';
-import {useEffect} from 'react';
-import {baseUrl} from '../../utils/Utils';
-import axios from 'axios';
 
-function DoctorList({ setDoctors, filteredDoctors }) {
-    useEffect(() => {
-        const fetchDoctorData = async () => {
-            try {
-                const res = await axios.get(`${baseUrl}`);
-                setDoctors(res.data);
-            } catch (err) {
-                console.error('Could not fetch doctor data:' + err);
-            }
-        };
-        fetchDoctorData();
+function DoctorList({doctors}) {
 
-    }, []);
 
     return (
         <section className="list"> 
             <div className="list__result-container"> 
-                {filteredDoctors.map((doctor) => (
+                {doctors.map((doctor) => (
                 <div key={doctor.id} className="list__container">
                     <div className="list__doctor-info">
                         <h3 className="list__name">{doctor.name}</h3>
