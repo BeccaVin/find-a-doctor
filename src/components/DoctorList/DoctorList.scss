@@ -6,6 +6,10 @@
     padding-bottom: 1rem;
     height: 100%;
     font-family: &font-family;
+    @include tablet {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 
     &__title {
         margin: 0;
@@ -52,8 +56,8 @@
         padding: 1rem;
     
         @include tablet {
-            margin-right: 2.5rem;
-            margin-left: 2.5rem;
+            margin-right: 7rem;
+            margin-left: 7rem;
             position: relative;
             padding: 2rem;
            

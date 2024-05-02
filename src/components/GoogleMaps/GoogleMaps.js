@@ -1,27 +1,21 @@
-"user client";
 import '../GoogleMaps/GoogleMaps.scss';
-import {
-    APIProvider, 
-    Map,
-    AdvancedMarker,
-    InfoWindow
-} from '@vis.gl/react-google-maps'; 
-import {googleApiKey} from '../../utils/Utils';
-import {useState} from 'react';
+import { GoogleMap, MarkerF } from '@react-google-maps/api';
+import icon from '../../assets/Logo/red-flat-marker.png';
 
-function GoogleMaps ({address, doctors}) {
-
-    const center = {lat:43.559060, lng:-79.705620}
-    const [openDoctor, setOpenDoctor] = useState(false);
-
+function GoogleMaps ({ isLoaded, selected }) {
+    
+    // const center = {lat:43.559060, lng:-79.705620}
+    
+    if (!isLoaded) {
+        return <h2 className="maps__loading">Loading Maps</h2>
+    }
     return (
-        <APIProvider apiKey={googleApiKey}>
-            <div className="maps">
-                <div className="maps__container">
-                    <Map 
+        <section className="maps">
+            <div className="maps__container">
+                <GoogleMap 
                     mapId="map"
-                    center= {address ? { address} : center}
-                    zoom={12} 
+                    center= {selected} 
+                    zoom={13} 
                     mapContainerClassName="maps__google-container"
                     options={{
                         zoomControl: true,
@@ -29,27 +23,11 @@ function GoogleMaps ({address, doctors}) {
                         mapTypeControl: false,
                         fullscreenControl: false,
                     }}
-                    >
-                        {doctors.map(doctor => (
-                            <AdvancedMarker 
-                                position={{ lat: doctor.latitude, lng: doctor.longitude }} 
-                                onClick ={() => setOpenDoctor(true)}
-                                key={doctor.id}>
-                            </AdvancedMarker>
-                        ))}
-                        {openDoctor && (
-                            <InfoWindow 
-                                position={{ lat: openDoctor.latitude, lng: openDoctor.longitude }} 
-                                onCloseClick= {() => setOpenDoctor(false)}>
-                                <h3>{openDoctor.name}</h3>
-                                <p>{openDoctor.specialty}</p>
-                                <p>{openDoctor.address}</p>
-                            </InfoWindow>
-                        )}
-                    </Map>
-                </div>
-            </div>
-        </APIProvider>
+                >
+                    {selected &&  <MarkerF position={selected} icon={icon}/>}       
+                </GoogleMap>
+                </div>           
+        </section>
     );
 }
 
