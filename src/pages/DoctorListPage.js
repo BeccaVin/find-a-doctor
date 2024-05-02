@@ -4,14 +4,29 @@ import ListPageHeader from '../components/ListPageHeader/ListPageHeader';
 import GoogleMaps from '../components/GoogleMaps/GoogleMaps';
 import {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
+import { baseUrl } from '../utils/Utils';
+import axios from 'axios';
 
-function DoctorListPage({isLoaded}) { 
+
+function DoctorListPage() { 
   const location = useLocation();
   const receivedState = location.state;
   const input = receivedState ? receivedState.input : null;
 
+  const [doctors, setDoctors] = useState([]);
 
-  const [distance, setDistance] = useState('');
+  useEffect(() => {
+      const doctorData = async () => {
+          try {
+              const res = await axios.get(`${baseUrl}`);
+              setDoctors(res.data);
+          } catch (err) {
+              console.error('Could not fetch doctor data:' + err);
+          }
+      };
+      doctorData();
+
+  }, [])
 
   return (
     <>
@@ -21,12 +36,12 @@ function DoctorListPage({isLoaded}) {
       />
       <GoogleMaps 
         input={input}
-          />
+        doctors={doctors}
+      />
       <DoctorList 
         input={input}
-
-
-          />
+        doctors={doctors}
+      />
       {/* <Footer /> */}
     </>
   )

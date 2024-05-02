@@ -1,21 +1,7 @@
 import '../DoctorList/DoctorList.scss';
-import { useEffect, useState } from 'react';
-import { baseUrl } from '../../utils/Utils';
-import axios from 'axios';
 
-function DoctorList({input}) {
-    const [doctors, setDoctors] = useState([]);
-    useEffect(() => {
-        const doctorData = async () => {
-            try {
-                const res = await axios.get(`${baseUrl}`);
-                setDoctors(res.data);
-            } catch (err) {
-                console.error('Could not fetch doctor data:' + err);
-            }
-        };
-        doctorData();
-    })
+function DoctorList({input, doctors}) {
+
     return (
         <section className="list">
             <div className="list__result-container">
@@ -33,9 +19,9 @@ function DoctorList({input}) {
                             <div className="list__address-details">
                                 <h4 className="list__address-title">Practice</h4>
                                 <p className="list__hospital">{doctor.practice_name}</p>
-                                <p className="list__street">{doctor.address}</p>
+                                <p className="list__street">{doctor.address_street}</p>
                                 <a className="list__address">
-                                    {doctor.city}, {doctor.province}, {doctor.postal_code}
+                                    {doctor.address_city}, {doctor.address_province}, {doctor.address_postal_code}
                                 </a>
                             </div>
                             <div className="list__contact">

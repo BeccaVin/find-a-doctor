@@ -1,19 +1,8 @@
 import '../GoogleMaps/GoogleMaps.scss';
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
 import icon from '../../assets/Logo/red-flat-marker.png';
-import {googleApiKey} from '../../utils/Utils';
-import { useJsApiLoader } from '@react-google-maps/api';
+function GoogleMaps ({ input, doctors }) {  
 
-const libraries = ['places'];
-function GoogleMaps ({ input }) {  
-    const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: googleApiKey,
-        libraries: libraries
-      })  
-      if (!isLoaded) {
-        return <h2 className="maps__loading">Loading Maps</h2>
-      }
-      
     return (
         <section className="maps">
             <div className="maps__container">
@@ -29,7 +18,9 @@ function GoogleMaps ({ input }) {
                         fullscreenControl: false,
                     }}
                 >
-                    {input &&  <MarkerF position={input} icon={icon}/>}       
+                     {doctors.map((doctor) => (
+                        <MarkerF key={doctor.id} position={{lat:doctor.latitude, lng: doctor.longitude}} icon={icon}/>
+                     ))}   
                 </GoogleMap>
                 </div>           
         </section>
