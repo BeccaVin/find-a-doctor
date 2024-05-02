@@ -5,14 +5,31 @@ import RegisterPage from './pages/RegisterPage';
 import DoctorListPage from './pages/DoctorListPage';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {googleApiKey} from './utils/Utils';
+import {baseUrl} from './utils/Utils';
 import { useJsApiLoader } from '@react-google-maps/api';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 const libraries = ['places'];
 
 function App() {
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    const doctorData = async () => {
+        try {
+            const res = await axios.get(`${baseUrl}`);
+            setDoctors(res.data);
+        } catch (err) {
+            console.error('Could not fetch doctor data:' + err);
+        }
+    };
+    doctorData();
+
+}, [])
+
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: googleApiKey,
+    googleMapsApiKey: process.env.googleApiKey,
     libraries: libraries
   })  
   if (!isLoaded) {
@@ -24,12 +41,14 @@ function App() {
         < Route 
           exact path="/" 
           element={<HomePage 
+            doctors={doctors}
           />}/>
         < Route exact path="/Login" element={<LoginPage />} />
         < Route exact path="/Register" element={<RegisterPage />} />
         < Route 
           exact path="/DoctorsList" 
           element={<DoctorListPage 
+            doctors={doctors}
           />} />
         < Route element={<NoPage />} />
       </Routes>

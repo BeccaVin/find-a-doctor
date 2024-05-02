@@ -2,13 +2,13 @@ import '../ListPageHeader/ListPageHeader.scss';
 import {NavLink} from 'react-router-dom';
 import { fromLatLng, setDefaults } from 'react-geocode';
 import {useState, useEffect} from 'react';
-import { googleApiKey } from '../../utils/Utils';
+
 function ListPageHeader({input}) {
     const [formattedAddress, setFormattedAddress] = useState('');
 
     useEffect(() => {
         setDefaults({
-            key: googleApiKey, 
+            key: process.env.googleApiKey, 
             language: "en", 
             region: "CA", 
           });
