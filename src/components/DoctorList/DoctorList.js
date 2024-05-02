@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { baseUrl } from '../../utils/Utils';
 import axios from 'axios';
 
-function DoctorList({selected}) {
+function DoctorList({input}) {
     const [doctors, setDoctors] = useState([]);
-
     useEffect(() => {
-        const fetchDoctorData = async () => {
+        const doctorData = async () => {
             try {
                 const res = await axios.get(`${baseUrl}`);
                 setDoctors(res.data);
@@ -15,9 +14,8 @@ function DoctorList({selected}) {
                 console.error('Could not fetch doctor data:' + err);
             }
         };
-        fetchDoctorData();
-    }, []);
-
+        doctorData();
+    })
     return (
         <section className="list">
             <div className="list__result-container">

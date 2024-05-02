@@ -2,26 +2,30 @@ import Header from '../components/Header/Header';
 import DoctorList from '../components/DoctorList/DoctorList';
 import ListPageHeader from '../components/ListPageHeader/ListPageHeader';
 import GoogleMaps from '../components/GoogleMaps/GoogleMaps';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
+
 function DoctorListPage({isLoaded}) { 
   const location = useLocation();
   const receivedState = location.state;
-  const selected = receivedState ? receivedState.selected : null;
+  const input = receivedState ? receivedState.input : null;
 
-  console.log(receivedState);
+
+  const [distance, setDistance] = useState('');
+
   return (
     <>
       <Header />
       <ListPageHeader 
-        selected={selected}
+        input={input}
       />
       <GoogleMaps 
-        isLoaded={isLoaded} 
-        selected={selected}
+        input={input}
           />
       <DoctorList 
-        selected={selected}
+        input={input}
+
+
           />
       {/* <Footer /> */}
     </>

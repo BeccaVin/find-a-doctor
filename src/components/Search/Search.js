@@ -4,14 +4,14 @@ import '../Search/Search.scss';
 import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete';
 import {Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from '@reach/combobox';
 import '@reach/combobox/styles.css';
-export default function Search({ isLoaded, setAddressInput }) {
+export default function Search() {
 
     const navigate = useNavigate();
-    const [selected, setSelected] = useState(null);
+    const [input, setInput] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate("/DoctorsList", { state: { selected } });
+        navigate("/DoctorsList", { state: { input } });
     }
     return (
         <section className="search">
@@ -19,7 +19,7 @@ export default function Search({ isLoaded, setAddressInput }) {
         <form className="search__form">
             <h2 className="search__form-title">DOCTOR SEARCH</h2>
             <div className="search__form-container">
-                <PlacesAutocomplete setSelected={setSelected} />
+                <PlacesAutocomplete setInput={setInput} />
                 <div className="search__form-radio-div">
                     <input 
                         type="radio"
@@ -34,7 +34,7 @@ export default function Search({ isLoaded, setAddressInput }) {
     );
 }
 
-const PlacesAutocomplete = ({setSelected}) => {
+const PlacesAutocomplete = ({setInput}) => {
     const {
         ready, 
         value,
@@ -49,7 +49,7 @@ const PlacesAutocomplete = ({setSelected}) => {
 
         const results = await getGeocode({ address });
         const {lat, lng} = await getLatLng(results[0]);
-        setSelected({lat, lng }); 
+        setInput({lat, lng }); 
     }
     return(      
         <Combobox onSelect={handleSelect}>
