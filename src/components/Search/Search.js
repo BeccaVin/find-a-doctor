@@ -11,8 +11,9 @@ export default function Search({doctors}) {
 
     useEffect(() => {
         async function calculateDistances() {
-            if (!input) return;
-
+            if (!input) {
+                return;
+            }
             const destinationRefs = doctors.map(doctor => ({ lat: doctor.latitude, lng: doctor.longitude }));
 
             const service = new window.google.maps.DirectionsService();
@@ -39,8 +40,8 @@ export default function Search({doctors}) {
     }, [input, doctors]);
 
     const handleSubmit = (e) => {
-        if (!input.value) {    
-            console.log("Please enter your address.");
+        if (!input) {
+            alert('Please enter you address');
             return;
         }
         e.preventDefault();
