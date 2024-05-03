@@ -5,7 +5,7 @@ import RegisterPage from './pages/RegisterPage';
 import DoctorListPage from './pages/DoctorListPage';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {baseUrl} from './utils/Utils';
+import {baseUrl, googleApiKey} from './utils/Utils';
 import { useJsApiLoader } from '@react-google-maps/api';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
@@ -29,7 +29,7 @@ function App() {
 }, [])
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.googleApiKey,
+    googleMapsApiKey: googleApiKey,
     libraries: libraries
   })  
   if (!isLoaded) {

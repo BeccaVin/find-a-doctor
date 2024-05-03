@@ -8,6 +8,8 @@ function DoctorListPage({doctors}) {
   const location = useLocation();
   const receivedState = location.state;
   const input = receivedState ? receivedState.input : null;
+  const distances = location.state.distances;
+  const acceptingNewPatients = location.state.acceptingNewPatients;
 
   return (
     <>
@@ -22,6 +24,8 @@ function DoctorListPage({doctors}) {
       <DoctorList 
         input={input}
         doctors={doctors}
+        distances={distances}
+        acceptingNewPatients={acceptingNewPatients}
       />
       {/* <Footer /> */}
     </>
