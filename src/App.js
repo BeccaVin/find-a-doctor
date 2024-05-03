@@ -48,7 +48,6 @@ function App() {
         < Route 
           exact path="/DoctorsList" 
           element={<DoctorListPage 
-            doctors={doctors}
           />} />
         < Route element={<NoPage />} />
       </Routes>

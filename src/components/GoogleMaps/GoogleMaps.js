@@ -1,7 +1,7 @@
 import '../GoogleMaps/GoogleMaps.scss';
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
 import icon from '../../assets/Logo/red-flat-marker.png';
-function GoogleMaps ({ input, doctors, filteredDoctors }) {  
+function GoogleMaps ({ input, filteredDoctors }) {  
 
     return (
         <section className="maps">

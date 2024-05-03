@@ -1,6 +1,6 @@
 import '../DoctorList/DoctorList.scss';
 
-function DoctorList({distances, doctors, filteredDoctors}) {
+function DoctorList({distances, filteredDoctors}) {
     const doctorsWithDistances = filteredDoctors.map((doctor, index) => ({
         index,
         doctor,

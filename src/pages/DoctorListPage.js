@@ -5,7 +5,7 @@ import GoogleMaps from '../components/GoogleMaps/GoogleMaps';
 import Footer from '../components/Footer/Footer';
 import {useLocation} from 'react-router-dom';
 
-function DoctorListPage({doctors}) { 
+function DoctorListPage() { 
   const location = useLocation();
   const { input, distances, doctors: filteredDoctors } = location.state;
   
@@ -17,12 +17,10 @@ function DoctorListPage({doctors}) {
       />
       <GoogleMaps 
         input={input}
-        doctors={doctors}
         filteredDoctors={filteredDoctors}
       />
       <DoctorList 
         input={input}
-        doctors={doctors}
         distances={distances}
         filteredDoctors={filteredDoctors}
       />
