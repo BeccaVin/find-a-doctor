@@ -6,11 +6,8 @@ import {useLocation} from 'react-router-dom';
 
 function DoctorListPage({doctors}) { 
   const location = useLocation();
-  const receivedState = location.state;
-  const input = receivedState ? receivedState.input : null;
-  const distances = location.state.distances;
-  const acceptingNewPatients = location.state.acceptingNewPatients;
-
+  const { input, distances, doctors: filteredDoctors } = location.state;
+  
   return (
     <>
       <Header />
@@ -25,7 +22,7 @@ function DoctorListPage({doctors}) {
         input={input}
         doctors={doctors}
         distances={distances}
-        acceptingNewPatients={acceptingNewPatients}
+        filteredDoctors={filteredDoctors}
       />
       {/* <Footer /> */}
     </>

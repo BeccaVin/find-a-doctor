@@ -1,11 +1,10 @@
 import '../DoctorList/DoctorList.scss';
 
-function DoctorList({distances, doctors, acceptingNewPatients}) {
-    const doctorsWithDistances = doctors.map((doctor, index) => ({
+function DoctorList({distances, doctors, filteredDoctors}) {
+    const doctorsWithDistances = filteredDoctors.map((doctor, index) => ({
         index,
         doctor,
         distance: distances[index],
-        acceptingNewPatients
     }));
 
     doctorsWithDistances.sort((a, b) => {
@@ -16,12 +15,12 @@ function DoctorList({distances, doctors, acceptingNewPatients}) {
         <section className="list">
             <div className="list__result-container">
                 {doctorsWithDistances.map(({ doctor, distance }) => (
-                    <div key={doctor.id} className={`list__container ${!doctor.accepting_new_patients && !acceptingNewPatients ? 'doctor--not-accepting' : ''}`}>
+                    <div key={doctor.id} className="list__container">
                         <div className="list__doctor-info">
                             <h3 className="list__name">{doctor.name}</h3>
                             <p className="list__cpso">CPSO#: {doctor.cpso_number}</p>
                         </div>
-                        <p>{distance === 'Distance calculation error' ? 'Distance calculation error': `Distance: ${distance}`}</p>
+                        <p className="list__distance">{distance === 'Distance calculation error' ? 'Distance calculation error': `Distance: ${distance}`}</p>
                         <div className="list__info-container">
                             <div className="list__specialty-info">
                                 <h4 className="list__specialty-title">Specialty</h4>
@@ -40,7 +39,13 @@ function DoctorList({distances, doctors, acceptingNewPatients}) {
                                 <p className="list__phone">{doctor.phone_number}</p>
                             </div>
                         </div>
-                        <h4 className="list__status">{doctor.status}</h4>
+                        <h4 className={`list__status ${
+                            doctor.status === "Accepting New Patients"
+                            ? "list__status-accepting"
+                            : "list__status-not-accepting"
+                        }`}>
+                            {doctor.status}
+                        </h4>
                     </div>
                 ))}
             </div>

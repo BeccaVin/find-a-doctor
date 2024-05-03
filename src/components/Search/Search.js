@@ -2,7 +2,6 @@ import {useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import '../Search/Search.scss';
 import PlacesAutocomplete from './PlacesAutocomplete';
-// import { DirectionsService } from '@react-google-maps/api';
 
 export default function Search({doctors}) {
         const navigate = useNavigate();
@@ -41,8 +40,14 @@ export default function Search({doctors}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate("/DoctorsList", { state: { input, distances, acceptingNewPatients } });
+        
+        const filteredDoctors = acceptingNewPatients
+            ? doctors.filter(doctor => doctor.status === "Accepting New Patients")
+            : doctors;
+    
+        navigate("/DoctorsList", { state: { input, distances, doctors: filteredDoctors } });
     };
+    
 
     return (
         <section className="search">

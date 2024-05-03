@@ -44,25 +44,20 @@
         color: $hover-blue;
         text-decoration: underline;
     }
-    &__hits {
-        margin: 0;
-        font-family: $font-family2;
-    }
     &__result-container {
         background-color: $light-blue;
         margin: 1rem 2rem 1rem 2rem;
         box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
         border-radius: 4px;
-        padding: 1rem;
+        padding: 1rem 2rem 1rem 2rem;
     
         @include tablet {
             margin-right: 7rem;
             margin-left: 7rem;
             position: relative;
-            padding: 2rem;
-           
+            padding: 2rem 3rem 2rem 3rem;
+            padding-top: 0;    
         }
-
         @include desktop {
             margin-right: 7rem;
             margin-left: 7rem;
@@ -72,9 +67,10 @@
     }
     &__container {
         border-bottom: 1px solid $black;
+        padding-top: 2rem;
+        position: relative;
     }
     &__doctor-info {
-        
         @include tablet {
         display: flex;
         justify-content: center;
@@ -88,6 +84,18 @@
             font-size: 1.3rem;
         }
     }
+    &__distance{
+        position: absolute;
+        font-family:$font-family;
+        font-weight: 900;
+        right: 0;
+        top: 0;
+        @include tablet {
+            font-size: 1.1rem;
+            left: 0;
+        }
+ 
+    }
     &__cpso {
        margin-top: 0;
         @include tablet {
@@ -100,33 +108,29 @@
             text-align: center;
         }
     }
-    // &__specialty-info {
-    //     @include tablet {
-    //         display: flex;
-    //         // justify-content: space-between;
-    //     }
-    // }
     &__specialty-title, &__address-title, &__contact-title {
         margin-bottom: 0;
     }
     &__specialty, &__phone {
         margin-top: 0;
-        // @include tablet {
-        //     margin-top: 1.4rem;
-        //     padding-left: 1rem;
-        // }
     }
     &__hospital, &__street, &__address {
         margin: 0;
     }
-    &__status {
+    &__status-accepting {
         color: $hover-blue;
         text-align: right;
-        margin-right: 1rem;
 
         @include tablet {
-            margin-right: 2rem;
+            font-size: 1.1rem;
         }
     }
+    &__status-not-accepting {
+        color: $red;
+        text-align: right;
 
+        @include tablet {
+            font-size: 1.1rem;
+        }
+    }
 }
