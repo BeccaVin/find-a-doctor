@@ -18,6 +18,7 @@ function DoctorListPage({doctors}) {
       <GoogleMaps 
         input={input}
         doctors={doctors}
+        filteredDoctors={filteredDoctors}
       />
       <DoctorList 
         input={input}

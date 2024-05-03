@@ -29,7 +29,6 @@ function ListPageHeader({input}) {
             <h3 className="listheader__input">{formattedAddress}</h3>
             <div className="listheader__top-container">
                 <NavLink to="/" className="listheader__link">Back to Search</NavLink>
-                {/* <p className="listheader__hits">2 results</p> */}
             </div>
         </section>
     );
