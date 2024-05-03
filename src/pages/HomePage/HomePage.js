@@ -1,5 +1,6 @@
 import Header from '../../components/Header/Header';
 import Search from '../../components/Search/Search';
+import Footer from '../../components/Footer/Footer';
 import '../HomePage/HomePage.scss';
 function HomePage( {doctors}) {
     return (
@@ -8,6 +9,7 @@ function HomePage( {doctors}) {
             <Search 
               doctors={doctors}
             />
+            <Footer/>
         </>
 
     );

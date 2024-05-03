@@ -39,6 +39,10 @@ export default function Search({doctors}) {
     }, [input, doctors]);
 
     const handleSubmit = (e) => {
+        if (!input.value) {    
+            console.log("Please enter your address.");
+            return;
+        }
         e.preventDefault();
         
         const filteredDoctors = acceptingNewPatients
