@@ -1,0 +1,30 @@
+@import '../../styles/mixins';
+.maps {
+    position: relative;
+    display: flex;
+    height: 60vh;
+    width: fill;
+    background-color: $light-grey;
+    
+    &__loading {
+        text-align: center;
+    }
+    &__container {
+        position: absolute;
+        top:0;
+        left: 0;
+        height: fill;
+        width: fill;
+        display: flex;
+        justify-content: center;
+        margin: 1rem;
+    }
+    &__google-container {
+        width: fill;
+        height: fill;
+        border-radius: 4px;
+        @include tablet {
+            width: 70vw;
+        }
+    }
+}
