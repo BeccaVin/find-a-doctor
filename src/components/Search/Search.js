@@ -41,7 +41,7 @@ export default function Search({doctors}) {
 
     const handleSubmit = (e) => {
         if (!input) {
-            alert('Please enter you address');
+            alert('Please enter your address');
             return;
         }
         e.preventDefault();
